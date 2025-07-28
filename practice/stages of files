@@ -2,3 +2,15 @@
     Modified (made changes to it but not commited)
     staged  (ready to be committed to the project)
     commited (safely stored in the repository)
+
+cat >> file.py 
+    print ("Hello")
+git status 
+    modified
+
+git add .
+git status
+    staged
+
+git commit -m "file.py"
+    
