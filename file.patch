@@ -1,0 +1,7 @@
+--- file1	2025-07-28 11:04:30.977506100 -0600
++++ file2	2025-07-28 11:04:42.636364300 -0600
+@@ -1 +1 @@
+-a and b friends
+\ No newline at end of file
++a and b are friends
+\ No newline at end of file

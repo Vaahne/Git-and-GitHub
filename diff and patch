@@ -1,0 +1,62 @@
+diff
+=========
+    It shows the differences between 2 files.
+$ diff file_1 file_2
+
+
+$ diff rearrange1.py rearrange2.py
+o/p:
+    6c6
+
+<     result = re.search(r"^([\w .]*), ([\w .]*)$", name)
+
+---
+
+>     result = re.search(r"^([\w .-]*), ([\w .-]*)$", name)
+
+Note:
+    here < means that is removed in second file 
+         > means that line is added in second file
+=========================================================
+To get the differences in more detailed formate -u.
+    diff -u file1 file2
+here in the output 
+- means removed
++ means added
+
+wdiff
+===============
+it shows the word differences 
+
+more example commands
+------------------------
+meld
+KDiff3
+vimdiff
+
+===================================patch==========================
+if file1 has content as follows
+    a and b friends
+and file 2 has content as follows
+    a and b are friends
+
+    In file1 "are" is missing so now need to create a diff/patch file. follow below steps
+
+save the differences in a .patch file 
+    diff -u file1 file2 > file.patch
+now do the patch for the file1 from the patch file
+    patch file1 < file.patch
+
+now if we do cat file1
+    a and b are friends
+
+
+=========================================================================
+diff will gives the differences between 2 files
+patch is used to patch the file with the changes given by the diff file.
+=========================================================================
+
+diff -u file1 file2
+    this helps to find the differences only lines between 2 files
+
+patch is useful for applying file differences 
