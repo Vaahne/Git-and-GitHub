@@ -26,6 +26,8 @@ git add .
 git commit -m "my first commit"
 git push origin master
 
+===================git status==============================
+
 The git directory contains all the changes and their history and the working tree contains the current versions of the files.
 
 .git folder has the following files
@@ -33,3 +35,16 @@ The git directory contains all the changes and their history and the working tre
     objects/    refs/
 
 COMMIT_EDITMSG  contains the commit messages that are committed. 
+
+============================
+git config -l
+    this gives all the details of git like user name ,email etc
+
+===================================
+git log
+    about the commit history
+    it gives the author ,date and the commit message of the commits done 
+    
+=========================================
+
+git commit -a -m "call check_reboot from main, exit with 1 on error"
