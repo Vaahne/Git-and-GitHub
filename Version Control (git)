@@ -1,0 +1,146 @@
+git
+-------
+vcs (version control system)
+scm (source Control management)
+
+git --version
+    git version 2.48.1.windows.1
+
+============ configuring git ==================
+git config --global user.email "me@example.com"
+git config --global user.name "My name"
+
+mkdir repo1
+cd repo1
+
+git init
+
+------------------
+then in repo1 a hidden folder .git will be created.
+    
+after creating files in the repo1
+
+to add the files to the remote repository 
+
+git add .
+git commit -m "my first commit"
+git push origin master
+
+===================git status==============================
+
+The git directory contains all the changes and their history and the working tree contains the current versions of the files.
+
+.git folder has the following files
+    commit_editmsg      config      description     head        hooks/      index   info/   logs/
+    objects/    refs/
+
+COMMIT_EDITMSG  contains the commit messages that are committed. 
+
+============================
+git config -l
+    this gives all the details of git like user name ,email etc
+
+===================================
+git log
+    about the commit history
+    it gives the author ,date and the commit message of the commits done 
+    
+=========================================
+
+git commit -a -m "call check_reboot from main, exit with 1 on error"
+
+-a : saves the step of doing git add for modified files that are already being tracked.
+     it doesnot include new files(untracked) and still need to manually do git add
+
+==============================================
+to see what are the changes done 
+    git log -p (p comes form patch)
+    git log --stat
+    git show <commit_id>
+
+=================================================
+git add -p (checks for confirmation yes or no before adding to the staging)
+
+=========
+ git diff 
+ git diff --staged ( to see what are staged)
+
+ =============Removing files from git ==============
+ git rm <file_name>
+ git commit -m "file removed"
+
+ ============ renaming file =========
+ git mv reboot.py reboot1.py
+ git commit -m "renamed the file"
+
+ ======== ignoreing files ===========
+ .gitignore
+    this file contains all the fiels to ger ignored when commiting the files
+    or files that dont want to  be in git remote
+
+*********************** undoing changes before commiting **************************
+if do some chanbges in a file and wanted to revert back or restore back the changes
+git checkout
+ex:
+edited file1
+git status
+    modified
+git checkout file1
+git status
+    upto date
+========================== reset  after staging====================
+    Remove the changes after staging
+cerated new file ex.txt
+git add .
+git status
+    modified 
+    new file
+=>we want to revert back
+git reset HEAD ex.txt
+git status
+    modified
+    untracked
+        ex.txt
+
+======================== Amending Commits ==============================
+used to amend for local commits
+git commit --amend
+    overwrites the previous commits
+
+touch file2
+touch file1
+git add file1
+git commit -m "2 files added"
+
+git add file2
+git commit --amend
+ 2 files added.
+ file1 and file2
+
+Now both the files are added in single commit. git commit --amend will overwrite the previous commit .
+====================== Reverting or Rollback =========================
+git revert HEAD
+    contains all the changes that are reverted
+
+if we did some commit and dont want the changes to happen then
+git revert HEAD
+
+after doing some changes in f1
+git commit -a -m "function disk added"
+git revert HEAD
+    function disk added
+    function disk undefined
+    git revert <commit_id>
+git log -p -2
+    This command gives the last 2 logs
+git log -p -<n>
+    gives last n commands
+
+========= to revert a specific commit =============
+git revert <commit_id>
+
+git revert 400169cfcbe3008ec0d07659d4802dec5e647958
+    I like the last filename
+    :qa!
+============= when we dont know the commit id of last commit ======
+git show

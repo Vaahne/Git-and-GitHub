@@ -1,0 +1,31 @@
+branch
+    Independent line of development in a project
+    default branch : master or main
+
+======== creating a new branch ============
+to view all the branches
+git branch
+
+to create new branch
+git branch new_feature
+
+to select or switch to the branch
+git checkout new_feature 
+
+to create and swtich to new branch
+git checkout -b latest_branch
+
+to delete a branch
+git checkout master
+git branch -d <branch_name>
+    It deletes right away if nothing is there to merge or gives an error
+
+================ Merging ============
+    combines the branced data and history together
+git checkout master
+
+git merge new_feature
+    2 branches points to the same commit
+
+=========== Merge conflict ================
+if same line is updated in 2 different branches and if we tried to merge , it gives merge conflict
